@@ -6,7 +6,10 @@
 
   <ItemGroup>
     <PackageReference Include="Discord.Net" Version="2.1.1" />
-    <PackageReference Include="Nodsoft.YumeChan.PluginBase" Version="0.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nodsoft.YumeChan.PluginBase\Nodsoft.YumeChan.PluginBase.csproj" />
   </ItemGroup>
 
 </Project>
