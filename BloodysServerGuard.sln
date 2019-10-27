@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodyTakao.BloodysServerGuard", "BloodyTakao.BloodysServerGuard\BloodyTakao.BloodysServerGuard.csproj", "{473441D5-BEBE-4A86-A733-AAC00935DADD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodyTakao.BloodysServerGuard", "BloodyTakao.BloodysServerGuard\BloodyTakao.BloodysServerGuard.csproj", "{473441D5-BEBE-4A86-A733-AAC00935DADD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nodsoft.YumeChan.PluginBase", "Nodsoft.YumeChan.PluginBase\Nodsoft.YumeChan.PluginBase.csproj", "{242900B5-B380-4065-8CEC-6ECDD411FCDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{473441D5-BEBE-4A86-A733-AAC00935DADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{473441D5-BEBE-4A86-A733-AAC00935DADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{473441D5-BEBE-4A86-A733-AAC00935DADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242900B5-B380-4065-8CEC-6ECDD411FCDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242900B5-B380-4065-8CEC-6ECDD411FCDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242900B5-B380-4065-8CEC-6ECDD411FCDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242900B5-B380-4065-8CEC-6ECDD411FCDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
