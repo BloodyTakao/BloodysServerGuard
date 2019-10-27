@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>0.1</Version>
+    <Authors>BloodyTakao</Authors>
+    <Company>YumeChan DT</Company>
+    <Product>Bloody's Server Guard</Product>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Copyright>GNU LGPLv3</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nodsoft.YumeChan.PluginBase\Nodsoft.YumeChan.PluginBase.csproj" />
+  </ItemGroup>
+
+</Project>
