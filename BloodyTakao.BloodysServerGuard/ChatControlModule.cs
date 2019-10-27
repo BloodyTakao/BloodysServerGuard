@@ -2,12 +2,23 @@
 using Discord.WebSocket;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 
+using static System.IO.Path;
 
 namespace BloodyTakao.BloodysServerGuard
 {
-    public class ChatControlModule
-    {
+	public static class ChatControlModule
+	{
+		public static List<string> WordBlacklist { get; set; } = new List<string>();
+
+		public static DirectoryInfo BlacklistLocation { get; set; } 
+			= Directory.CreateDirectory(Directory.GetCurrentDirectory() + DirectorySeparatorChar 
+			+ "Config" + DirectorySeparatorChar + typeof(PluginProperties).Assembly.GetName().Name);
+
+		public static FileInfo BlacklistFileInfo { get; set; } = new FileInfo(BlacklistLocation.FullName + DirectorySeparatorChar + "blacklist.list");
+
 		public static async Task ControllMessageAsync(SocketMessage message)
 		{
 			if (message.Author.IsBot || message.Author.IsWebhook || message is ISystemMessage || message.Channel is SocketDMChannel)
@@ -15,7 +26,7 @@ namespace BloodyTakao.BloodysServerGuard
 				return;
 			}
 
-			foreach (string word in wordBlacklist)
+			foreach (string word in WordBlacklist)
 			{
 				if (message.Content.ToLower().Contains(word))
 				{
@@ -25,11 +36,17 @@ namespace BloodyTakao.BloodysServerGuard
 			}
 		}
 
-		public static List<string> wordBlacklist { get; set; } = new List<string>
+		public static async Task InitBlacklistAsync()
 		{
-			"fuck",
-			"shit",
-			"faggot",
-		};
-    }
+			if (!BlacklistFileInfo.Exists)
+			{
+				BlacklistFileInfo.Create().Close();
+				WordBlacklist = new List<string>(); // Assign empty list instead of null, to prevent WordBlacklist property from reading the file indefinitely.
+				return;
+			}
+
+			WordBlacklist = new List<string>(await File.ReadAllLinesAsync(BlacklistFileInfo.FullName));
+
+		}
+	}
 }
