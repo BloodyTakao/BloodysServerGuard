@@ -6,25 +6,19 @@ using Nodsoft.YumeChan.PluginBase;
 
 namespace BloodyTakao.BloodysServerGuard
 {
-    public class PluginProperties : IPlugin, IMessageTap
-    {
-        public Version PluginVersion { get; } = typeof(PluginProperties).Assembly.GetName().Version;
+    public class PluginProperties : Plugin, IMessageTap
+    {        
+        public override string PluginDisplayName { get; } = "Bloody's Server Guard";
 
-        public string PluginDisplayName { get; } = "Bloody's Server Guard";
+        public override bool PluginStealth { get; } = false;
 
-        public bool PluginStealth { get; } = false;
-
-        public bool PluginLoaded { get; internal set; }
-
-        public Task LoadPlugin()
+        public override async Task LoadPlugin()
         {
-            PluginLoaded = true;
-            return Task.CompletedTask;
+			await base.LoadPlugin();
         }
-		public Task UnloadPlugin()
+		public override async Task UnloadPlugin()
 		{
-			PluginLoaded = false;
-			return Task.CompletedTask;
+			await base.UnloadPlugin();
 		}
 
 		public Task OnMessageDeleted(Cacheable<IMessage, ulong> message, ISocketMessageChannel channel)
